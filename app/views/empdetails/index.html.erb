@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+  <h5 class="card-header">Profile Info</h5>
+  <div class="card-body">
+        <p>First name:
+        <%= current_user.empdetail.first_name %>
+        </p>
+        <p>Last name: 
+        <%= current_user.empdetail.last_name %>
+        </p>
+        <p>Email:
+        <%= current_user.empdetail.email %>
+        </p>
+        <p>Phone:
+        <%= current_user.empdetail.phone %>
+        </p>
+        <p>Company
+        <%= current_user.empdetail.company %>
+        </p>
+        <br/>
+        <%= link_to 'Edit', edit_empdetail_path(current_user.empdetail),class:"btn btn-primary" %>
+  </div>
+</div>
+<br>
+

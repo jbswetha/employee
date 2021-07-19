@@ -1,0 +1,40 @@
+<%= form_with(model: empdetail) do |form| %>
+  <% if empdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(empdetail.errors.count, "error") %> prohibited this empdetail from being saved:</h2>
+
+      <ul>
+        <% empdetail.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :first_name,class:"form-control",placeholder:"First Name" %>
+  </div>
+  <br/>
+  <div class="field">
+    <%= form.text_field :last_name ,class:"form-control",placeholder:"Last Name"%>
+  </div>
+  <br/>
+  <div class="field">
+    <%= form.text_field :email ,class:"form-control",placeholder:"Email",value:current_user.email%>
+  </div>
+  <br/>
+  <div class="field">
+    <%= form.text_field :phone ,class:"form-control",placeholder:"Phone"%>
+  </div>
+  <br/>
+  <div class="field">
+    <% form.number_field :user_id,id: :empdetail_user_id,class:"form-control",placeholder:"UserID",value:current_user.id %>
+  </div>
+  <div class="field">
+    <%= form.text_field :company,class:"form-control",placeholder:"Company" %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
