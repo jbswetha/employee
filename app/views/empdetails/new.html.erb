@@ -1,5 +1,13 @@
-<h1>Add Details</h1>
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">Add Details</h5>
+    <%= render 'form', empdetail: @empdetail %>
+    <br/>
+    <%= link_to 'Back', empdetails_path,class:"btn btn-primary" %>
 
-<%= render 'form', empdetail: @empdetail %>
-<br/>
-<%= link_to 'Back', empdetails_path,class:"btn btn-primary" %>
+  </div>
+</div>
+
+
+
+
