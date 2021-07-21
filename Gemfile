@@ -25,6 +25,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8'
 
 gem 'zurb-foundation'
+gem 'foundation-rails'
+group :development do
+  gem 'rails_layout'
+end
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -6,9 +6,9 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control",placeholder:"Email" %>
   </div>
 
-  <div class="field">
+  <div class="row">
     <br />
-    <%= f.password_field :password, autocomplete: "current-password" ,class:"form-control",placeholder:"Password"%>
+    <%= f.password_field :password, autocomplete: "current-password" ,placeholder:"Password"%>
   </div>
   <br/>
   <% if devise_mapping.rememberable? %>
@@ -19,7 +19,7 @@
   <% end %>
   <br/>
   <div class="actions">
-    <%= f.submit "Log in" ,class:"btn btn-primary" %>
+    <%= f.submit "Log in" ,class:"button secondary" %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>

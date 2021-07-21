@@ -10,51 +10,94 @@
       </ul>
     </div>
   <% end %>
-    <div class= "form-group">
-        <div class="form-group row">
-            <div class="col"><%= form.label :firstname ,value="First Name"%></div> 
-            <div class="col"><%= form.text_field :firstname,class: "form-control" %></div>
-            <div class="col"> <%= form.label :lastname,value="Last Name" %></div>
-            <div class="col"><%= form.text_field :lastname,class: "form-control" %></div>
-        </div>
-        <div class="form-group row">
-            <div class="col"><%= form.label :dob ,value="Date of Birth"%></div> 
-            <div class="col"><%= form.text_field :dob,class: "form-control" %></div>
-            <div class="col"> <%= form.label :gender,value="Gender" %></div>
-            <div class="col"><%= form.text_field :gender,class: "form-control" %></div>
-        </div>
-        <div class="form-group row">
-            <div class="col"><%= form.label :contact ,value="Contact No"%></div> 
-            <div class="col"><%= form.text_field :contact,class: "form-control" %></div>
-            <div class="col"> <%= form.label :emal,value="Email" %></div>
-            <div class="col"><%= form.text_field :emal,class: "form-control" %></div>
-        </div>
-        <div class="form-group row">
-            <div class="col"><%= form.label :country ,value="Country"%></div> 
-            <div class="col"><%= form.text_field :country,class: "form-control" %></div>
-            <div class="col"> <%= form.label :location,value="Location" %></div>
-            <div class="col"><%= form.text_field :location,class: "form-control" %></div>
-        </div>
-        
-        <div class="form-group row">
-            <div class="col"> <%= form.label :industry,value="Industry" %></div>
-            <div class="col"><%= form.text_field :industry,class: "form-control" %></div>
-            <div class="col"> <%= form.label :currentposition,value="Current Position" %></div>
-            <div class="col"><%= form.text_field :currentposition,class: "form-control" %></div>
-        </div>
-        
-        
-    </div>
-    <div class="row">
+  <div class="card">
+    <br/>
+  <div class="card-divider">
+    <h4>Basic Info</h4>
+  </div>
+  <div class="card-section">
+    <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <label>First Name
+            <%= form.text_field :firstname %>
+            </label>
+            </div>
+            <div class="medium-6 cell"> 
+              <label>Last Name
+              <%= form.text_field :lastname %>
+              </label>
+            </div>
+          </div>
+     </div>
+     <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <label>Date of Birth
+            <%= form.text_field :dob %>
+            </label>
+            </div>
+            <div class="medium-6 cell"> 
+              <label>Gender
+              <%= form.text_field :gender %>
+              </label>
+            </div>
+          </div>
+     </div>
+     <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <label>Contact No
+            <%= form.text_field :contact %>
+            </label>
+            </div>
+            <div class="medium-6 cell"> 
+              <label>Email
+              <%= form.text_field :emal %>
+              </label>
+            </div>
+          </div>
+     </div>
+     <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <label>Country
+            <%= form.text_field :country %>
+            </label>
+            </div>
+            <div class="medium-6 cell"> 
+              <label>Location
+              <%= form.text_field :location %>
+              </label>
+            </div>
+          </div>
+     </div>
+
+     <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <label>Industry
+            <%= form.text_field :industry %>
+            </label>
+            </div>
+            <div class="medium-6 cell"> 
+              <label>Current Position
+              <%= form.text_field :currentposition %>
+              </label>
+            </div>
+          </div>
+     </div>
+    <div class="grid-container">
         <div class="col"><%= form.label :about ,value="About"%></div> 
-        <div class="col-left"><%= form.text_area :about,class: "form-control" %></div>
+        <div class="col-left"><%= form.text_area :about %></div>
     </div>
-    <div class="row">
+    <div class="grid-container">
             <div class="col"><%= form.label :skills,value="Skills"%></div> 
-            <div class="col-left"><%= form.text_area :skills,class: "form-control" %></div>
+            <div class="col-left"><%= form.text_area :skills %></div>
     </div>
-    <div class='align-center'>
-            <%= form.submit class:"btn btn-primary" %>
+    <div class='grid-container'>
+            <%= form.submit class:"button" %>
     </div>
+</div>
     
 <% end %>

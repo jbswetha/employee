@@ -10,4 +10,7 @@ class Employeedetail < ApplicationRecord
     validates :industry, presence: true
     validates :skills, presence: true
     validates :gender, presence: true
+
+    belongs_to :user
+    has_many :experiences
 end

@@ -20,6 +20,7 @@ class EmployeedetailsController < ApplicationController
           render :new
         end
     end
+
     private
     def employeedetail_params
       params.require(:employeedetail).permit(:firstname, :lastname, :dob, :gender, :contact, :emal, :country, :location, :about, :industry, :skills, :currentposition)

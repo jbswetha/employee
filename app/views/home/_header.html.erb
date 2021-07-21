@@ -1,40 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container-fluid">
-    <%=link_to 'Employee Portfolio',root_path,class:"navbar-brand"%>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <% if user_signed_in? %>
-            <li class="nav-item">
-            <%=link_to 'Sign Out',destroy_user_session_path, method: :delete,class:"nav-link active"%>
-            </li>
-            <li class="nav-item">
-            <%=link_to 'Add Details',new_employeedetail_path,class:"nav-link active"%>
-            </li>
-            <li class="nav-item">
-            <%=link_to 'Edit Proile',edit_user_registration_path,class:"nav-link active"%>
-            </li>
-            <li class="nav-item">
-            <%=link_to 'Employee Details',employeedetails_path,class:"nav-link active"%>
-            </li>
+<nav class = "top-bar">
+         <div class = "top-bar-left">
+         <ul class = "menu" data-dropdown-menu>
+               <li class = "menu-text"><%= link_to 'Employee Portfolio', root_path%></li>
+               <% if user_signed_in? %>
+               <li>
+               <%=link_to 'Sign Out',destroy_user_session_path, method: :delete %>
+               </li>
+               <li>
+               <%=link_to 'Add Details',new_employeedetail_path%>
+               </li>
+               <li>
+               <%=link_to 'Edit Proile',edit_user_registration_path%>
+               </li>
+               <li>
+               <%=link_to 'Employee Details',employeedetails_path%>
+               </li>
+               <%else%>
+               <li class>
+               <%=link_to 'Sign Up',new_user_registration_path%> 
+               <li>
+               <%=link_to 'Sign In',new_user_session_path%>  
+               </li>
+    
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        <%else %>
-        <li class="nav-item">
-        <%=link_to 'Sign Up',new_user_registration_path,class:"nav-link active"%> 
-        <li class="nav-item">
-        <%=link_to 'Sign In',new_user_session_path,class:"nav-link active"%>  
-        </li>
-        <%end%>
-
-      
-      
-    </div>
-  </div>
+         </div>
+         
+         <div class = "top-bar-right">
+            <ul class = "menu">
+               <li><input type = "search" placeholder = "Search Here"></li>
+               <li><button type = "button" class = "button">Search</button></li>
+            </ul>
+         </div>
+         <%end%>   
 </nav>
+
