@@ -48,6 +48,8 @@
 
   </div>
 </div>
+<%= link_to 'Delete', @employeedetail, class:"button secondary", data: { confirm: 'Are you sure?' } ,:method => :delete%>
+
 <div class="card">
         <br/>
     <div class="card-divider">
@@ -63,7 +65,8 @@
     <p><%= experience.startdate%> </p>
     <p><%= experience.enddate%> </p>
 
-    </div>
+</div>
+
 <%end%>
 </div>
 

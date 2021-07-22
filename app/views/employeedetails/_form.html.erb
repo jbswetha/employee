@@ -1,15 +1,5 @@
 <%= form_with model: @employeedetail do |form| %>
-    <% if employeedetail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employeedetail.errors.count, "error") %> prohibited this employeedetail from being saved:</h2>
-
-      <ul>
-        <% employeedetail.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+   
   <div class="card">
     <br/>
   <div class="card-divider">
@@ -94,6 +84,14 @@
     <div class="grid-container">
             <div class="col"><%= form.label :skills,value="Skills"%></div> 
             <div class="col-left"><%= form.text_area :skills %></div>
+    </div>
+    <div class="grid-container"> 
+            <div class="col-left"><%= form.number_field :user_id ,id: :employeedetail_user_id,value:current_user.id,type: :hidden%></div>
+    </div>
+    <div class="grid-container">
+      <div class=col><%= form.label :image ,value="Profile picture"%>
+      <div class="col"><%= form.file_field :image%></div>
+      </div>
     </div>
     <div class='grid-container'>
             <%= form.submit class:"button" %>

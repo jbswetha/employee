@@ -13,4 +13,5 @@ class Employeedetail < ApplicationRecord
 
     belongs_to :user
     has_many :experiences
+    has_one_attached :image , :dependent => :destroy 
 end

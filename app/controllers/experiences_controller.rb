@@ -10,4 +10,9 @@ class ExperiencesController < ApplicationController
     params.require(:experience).permit(:title, :jobtype, :company, :joblocation, :startdate, :enddate)
     
     end 
+
+    def edit
+        @employeedetail=Employeedetail.find(params[:employeedetail_id, :id])
+        
+    end
 end

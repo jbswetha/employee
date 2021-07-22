@@ -1,7 +1,7 @@
 <nav class = "top-bar">
          <div class = "top-bar-left">
          <ul class = "menu" data-dropdown-menu>
-               <li class = "menu-text"><%= link_to 'Employee Portfolio', root_path%></li>
+               <li class = "menu-text"><%= link_to 'Employee Portfolio', employeedetails_path%></li>
                <% if user_signed_in? %>
                <li>
                <%=link_to 'Sign Out',destroy_user_session_path, method: :delete %>
@@ -12,25 +12,23 @@
                <li>
                <%=link_to 'Edit Proile',edit_user_registration_path%>
                </li>
-               <li>
-               <%=link_to 'Employee Details',employeedetails_path%>
-               </li>
+               <div class = "top-bar-right">
+                  <ul class = "menu">
+                     <li><input type = "search" placeholder = "Search Here"></li>
+                     <li><button type = "button" class = "button">Search</button></li>
+                  </ul>
+               </div>
                <%else%>
                <li class>
                <%=link_to 'Sign Up',new_user_registration_path%> 
                <li>
                <%=link_to 'Sign In',new_user_session_path%>  
                </li>
-    
+               <%end%>
             </ul>
          </div>
          
-         <div class = "top-bar-right">
-            <ul class = "menu">
-               <li><input type = "search" placeholder = "Search Here"></li>
-               <li><button type = "button" class = "button">Search</button></li>
-            </ul>
-         </div>
-         <%end%>   
+         
+            
 </nav>
 

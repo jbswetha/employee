@@ -6,49 +6,60 @@
   <div class="card-section">
 
 <ul>
-    <% @employeedetails.each do |employeedetail| %>
-    <p>
-        <strong>Name:</strong>
-        <%= employeedetail.firstname+" "+employeedetail.lastname %>
-    </p>
-    <p>
-        <strong>Gender:</strong>
-        <%= employeedetail.gender %>
-    </p>
-    <p>
-        <strong>Date of Birth:</strong>
-        <%= employeedetail.dob %>
-    </p>
-    <p>
-        <strong>Email:</strong>
-        <%= employeedetail.emal %>
-    </p>
-    <p>
-        <strong>Contact:</strong>
-        <%= employeedetail.contact %>
-    </p>
-    <p>
-        <strong>About:</strong>
-        <%= employeedetail.about %>
-    </p>
-    <p>
+    <% @employeedetail.each do |employeedetail|%>
+    <div class="card">
+        </br>
+      <div class="card-divider">
+        <h4><%= employeedetail.firstname+" "+employeedetail.lastname %></h4>
+      </div>
+      <div class="card-section">
+      <p>
+      <strong>Current Position:</strong>
+      <%= employeedetail.currentposition %>
+        </p>
+        <p>
         <strong>Location:</strong>
         <%= employeedetail.location %>
-    </p>
-    <p>
-        <strong>Skills:</strong>
-        <%= employeedetail.skills %>
-    </p>
-    <p>
-        <strong>Country:</strong>
-        <%= employeedetail.country %>
-    </p>
-    <p>
-        <strong>Current Position:</strong>
-        <%= employeedetail.currentposition %>
-    </p>
-    
-  <% end %>
+          </p>
+          <p>
+          <strong>Gender:</strong>
+          <%= employeedetail.gender %>
+      </p>
+      <p>
+          <strong>Date of Birth:</strong>
+          <%= employeedetail.dob %>
+      </p>
+      <p>
+          <strong>Email:</strong>
+          <%= employeedetail.emal %>
+      </p>
+      <p>
+          <strong>Contact:</strong>
+          <%= employeedetail.contact %>
+      </p>
+      <p>
+          <strong>About:</strong>
+          <%= employeedetail.about %>
+      </p>
+      <p>
+          <strong>Location:</strong>
+          <%= employeedetail.location %>
+      </p>
+      <p>
+          <strong>Skills:</strong>
+          <%= employeedetail.skills %>
+      </p>
+      <p>
+          <strong>Country:</strong>
+          <%= employeedetail.country %>
+      </p>
+
+      <%if current_user.id==employeedetail.user_id%>
+         <%= link_to "Delete", employeedetail, class: "button", :method => :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_employeedetail_path(employeedetail) , class: "button"%>
+        <%end%>
+    </div>
+<%end%>
 </ul>
 </div>
 </div>
