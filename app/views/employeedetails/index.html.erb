@@ -4,13 +4,20 @@
     <h4>Employee details</h4>
   </div>
   <div class="card-section">
+  <form class="form-inline my-2 my-lg-0 show-class" method="GET" action="/search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search by name or skills" aria-label="Search" name="query" >
+      <%= link_to "Search" ,type:"submit",class: "button"%>
+    </form>
 
 <ul>
     <% @employeedetail.each do |employeedetail|%>
     <div class="card">
         </br>
       <div class="card-divider">
-        <h4><%= employeedetail.firstname+" "+employeedetail.lastname %></h4>
+        <p><%if (employeedetail.image.attached?)%>
+            <%= image_tag employeedetail.image%>
+        <%end%></p>
+        <div><h4><%= employeedetail.firstname+" "+employeedetail.lastname%></h4></div>
       </div>
       <div class="card-section">
       <p>
@@ -55,8 +62,8 @@
       </p>
 
       <%if current_user.id==employeedetail.user_id%>
-         <%= link_to "Delete", employeedetail, class: "button", :method => :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Edit', edit_employeedetail_path(employeedetail) , class: "button"%>
+         <%= link_to "Delete",employeedetail, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <p><%= link_to "Edit", edit_employeedetail_path(employeedetail),remote: true%></p>
         <%end%>
     </div>
 <%end%>

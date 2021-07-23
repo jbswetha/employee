@@ -30,6 +30,8 @@ group :development do
   gem 'rails_layout'
 end
 
+gem 'jquery-rails', '~> 4.4'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

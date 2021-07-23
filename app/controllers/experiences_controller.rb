@@ -1,6 +1,5 @@
 class ExperiencesController < ApplicationController
     def create
-        @employeedetail=Employeedetail.find(params[:employeedetail_id])
         @experience=@employeedetail.experiences.create(experience_params)
         redirect_to employeedetails_path(@employeedetail)
     end

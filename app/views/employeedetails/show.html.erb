@@ -4,7 +4,9 @@
     <h4>Employee  Profile</h4>
   </div>
   <div class="card-section">
-    
+  <%if (@employeedetail.image.attached?)%>
+  <%= image_tag @employeedetail.image%>
+    <%end%>
     <p>
     <strong>Name:</strong>
     <%= @employeedetail.firstname+" "+@employeedetail.lastname %>
@@ -48,8 +50,9 @@
 
   </div>
 </div>
-<%= link_to 'Delete', @employeedetail, class:"button secondary", data: { confirm: 'Are you sure?' } ,:method => :delete%>
-
+<% if current_user.id==@employeedetail.user_id%>
+<%= link_to 'Delete', @employeedetail, class:"button secondary", data: { confirm: 'Are you sure?' } ,method: :delete%>
+<%end%>
 <div class="card">
         <br/>
     <div class="card-divider">
@@ -70,59 +73,5 @@
 <%end%>
 </div>
 
-<%= form_for([@employeedetail, @employeedetail.experiences.build]) do |f|%>
-    <div class="card">
-        <br/>
-    <div class="card-divider">
-        <h4>Experience Details</h4>
-      </div>
-    <div class="card-section">
-        <div class= "grid-container"> 
-                <div class="grid-x grid-padding-x">
-                    <div class="medium-6 cell">
-                    <label>Title
-                    <%= f.text_field :title %>
-                    </label>
-                    </div>
-                    <div class="medium-6 cell"> 
-                    <label>Type
-                    <%= f.text_field :jobtype %>
-                    </label>
-                    </div>
-        </div>
-        </div>
-        <div class= "grid-container"> 
-                <div class="grid-x grid-padding-x">
-                    <div class="medium-6 cell">
-                    <label>Company
-                    <%= f.text_field :company %>
-                    </label>
-                    </div>
-                    <div class="medium-6 cell"> 
-                    <label>Job Location
-                    <%= f.text_field :joblocation %>
-                    </label>
-                    </div>
-        </div>
-        </div>
-        <div class= "grid-container"> 
-                <div class="grid-x grid-padding-x">
-                    <div class="medium-6 cell">
-                    <label>Start Date
-                    <%= f.text_field :startdate %>
-                    </label>
-                    </div>
-                    <div class="medium-6 cell"> 
-                    <label>End Date
-                    <%= f.text_field :enddate %>
-                    </label>
-                    </div>
-        </div>
-        </div>
-        <div class='grid-container'>
-         <%= f.submit "Add Experience", class:"button" %>
-    </div>
-    </div>
-    <%end%>
 
 

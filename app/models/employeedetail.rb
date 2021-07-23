@@ -13,5 +13,7 @@ class Employeedetail < ApplicationRecord
 
     belongs_to :user
     has_many :experiences
+    accepts_nested_attributes_for :experiences
     has_one_attached :image , :dependent => :destroy 
+    
 end
