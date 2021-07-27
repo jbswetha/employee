@@ -11,7 +11,15 @@ class ExperiencesController < ApplicationController
     end 
 
     def edit
-        @employeedetail=Employeedetail.find(params[:employeedetail_id, :id])
-        
+        @experience = @employeedetail.experiences.find(params[:id])
+        render_to_string(partial: 'edit_experience_modal.html.erb', locals: {experience: @experience})
     end
+
+    def destroy
+        @experience.destroy
+    end
+
+    def index
+        @experiences = @employeedetail.experiences.all
+      end
 end

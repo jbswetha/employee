@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" , id ="employees">
     </br>
   <div class="card-divider">
     <h4>Employee details</h4>
@@ -6,7 +6,7 @@
   <div class="card-section">
   <form class="form-inline my-2 my-lg-0 show-class" method="GET" action="/search">
       <input class="form-control mr-sm-2" type="search" placeholder="Search by name or skills" aria-label="Search" name="query" >
-      <%= link_to "Search" ,type:"submit",class: "button"%>
+      <%= link_to "Search" ,type:"submit",class: "button secondary"%>
     </form>
 
 <ul>
@@ -62,11 +62,15 @@
       </p>
 
       <%if current_user.id==employeedetail.user_id%>
-         <%= link_to "Delete",employeedetail, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <p><%= link_to "Edit", edit_employeedetail_path(employeedetail),remote: true%></p>
+         <p><%= link_to "Delete",employeedetail, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to "Edit", edit_employeedetail_path(employeedetail),local: false%></p>
         <%end%>
+        
     </div>
 <%end%>
 </ul>
+<div id = "new-employee">
+<%=link_to 'Add Details',new_employeedetail_path, remote: true%>
+</div>
 </div>
 </div>

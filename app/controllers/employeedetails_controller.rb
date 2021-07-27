@@ -1,9 +1,12 @@
 class EmployeedetailsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   skip_before_action :verify_authenticity_token , only: [:create]
+  respond_to :html, :json
 
     def index
         @employeedetail=Employeedetail.all
+
+        
     end
 
     def show
@@ -14,15 +17,21 @@ class EmployeedetailsController < ApplicationController
         #@employeedetail = Employeedetail.new
         @employeedetail = current_user.employeedetail.build
         @employeedetail.experiences.build
+        
     end
     
     def create
         @employeedetail = current_user.employeedetail.new(employeedetail_params)
     
-        if @employeedetail.save
-          redirect_to employeedetails_path(@employeedetail)
-        else
-          render :new
+        respond_to do |format|
+          if @employeedetail.save
+            format.js
+            format.html { redirect_to @employeedetail, notice: "Employee was successfully created." }
+            format.json { render :show, status: :created, location: @employee }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @employeedetail.errors, status: :unprocessable_entity }
+          end
         end
     end
 
@@ -32,10 +41,12 @@ class EmployeedetailsController < ApplicationController
     end
     
     def destroy
-      employeedetail.destroy
-      
-      redirect_to employeedetails_path, notice: "Employee detail was successfully destroyed." 
-      
+      @employeedetail=Employeedetail.find(params[:id])
+      @employeedetail.destroy
+      respond_to do |format|
+        format.html { redirect_to employeedetails_url }
+        format.json { head :no_content }
+      end
     end
 
     def search
@@ -45,17 +56,17 @@ class EmployeedetailsController < ApplicationController
     end
 
     def edit
-      employeedetail
+      @employeedetail= Employeedetail.find(params[:id])
     end
 
     def update
       
-        if @empdetail.update(empdetail_params)
-         redirect_to @employeedetail, notice: "Employee detail was successfully updated." 
-          render :show, status: :ok, location: @employeedetail 
+        if @employeedetail.update(empdetail_params)
+          flash.now[:success] = "Saved the Employee Details"
+          redirect_to employeedetail_path
         else
-          render :edit, status: :unprocessable_entity 
-          render json: @employeedetail.errors, status: :unprocessable_entity 
+          flash.now[:error] = "Unable to add the employee"
+           render 'new'
         
       end
     end

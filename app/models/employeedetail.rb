@@ -12,7 +12,7 @@ class Employeedetail < ApplicationRecord
     validates :gender, presence: true
 
     belongs_to :user
-    has_many :experiences
+    has_many :experiences , :dependent => :destroy
     accepts_nested_attributes_for :experiences
     has_one_attached :image , :dependent => :destroy 
     
