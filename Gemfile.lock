@@ -242,7 +242,7 @@ DEPENDENCIES
   devise (~> 4.8)
   foundation-rails
   jbuilder (~> 2.7)
-  jquery-rails (~> 4.4)
+  jquery-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)

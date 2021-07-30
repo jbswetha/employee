@@ -62,15 +62,17 @@
       </p>
 
       <%if current_user.id==employeedetail.user_id%>
-         <p><%= link_to "Delete",employeedetail, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <p><%= link_to "Edit", edit_employeedetail_path(employeedetail),local: false%></p>
+         <p><%= link_to "Delete",employeedetail_path(employeedetail), method: :delete,type: "submit", data: { confirm: 'Are you sure?' } %></p>
+        <p><%= link_to "Edit","#", data: { target:"#edit_about_modal", toggle:"modal" } , class: "edit_employeedetail",local: false%></p>
         <%end%>
-        
-    </div>
+        <div id="edit_container"></div>
+    </div>  
 <%end%>
+
+
 </ul>
 <div id = "new-employee">
-<%=link_to 'Add Details',new_employeedetail_path, remote: true%>
+<%=link_to 'Add Details',new_employeedetail_path%>
 </div>
 </div>
 </div>

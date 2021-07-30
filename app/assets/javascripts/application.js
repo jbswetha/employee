@@ -11,11 +11,23 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-ujs
 //= require turbolinks
 //= require foundation
 //= require jquery-ujs
 //= require_tree .
+
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+import "jquery"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+
+import "controllers"
+require("employeedetail")
+
 $(function() {
   $(document).foundation();
 });

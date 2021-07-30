@@ -1,4 +1,4 @@
-<%= form_with(model: employeedetail) do |form| %>
+<%= form_with(model: @employeedetail, id: "formemployee", local: false)  do |form| %>
    
   <div class="card">
     <br/>
@@ -106,6 +106,7 @@
     </div>
   <div class="card-section">
       <div class= "grid-container"> 
+      <div class="grid-container"> 
               <div class="grid-x grid-padding-x">
                   <div class="medium-6 cell">
                   <label>Title
@@ -146,8 +147,9 @@
                   </label>
                   </div>
       </div>
+
       </div>
-     
+    
   </div>
 
   <div class='actions '>

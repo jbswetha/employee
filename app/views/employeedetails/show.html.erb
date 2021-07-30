@@ -4,10 +4,12 @@
     <h4>Employee  Profile</h4>
   </div>
   <div class="card-section">
+  <div id= "showform">
   <%if (@employeedetail.image.attached?)%>
   <%= image_tag @employeedetail.image%>
     <%end%>
     <p>
+
     <strong>Name:</strong>
     <%= @employeedetail.firstname+" "+@employeedetail.lastname %>
 </p>
@@ -51,26 +53,29 @@
   </div>
 </div>
 <% if current_user.id==@employeedetail.user_id%>
-<%= link_to 'Delete', @employeedetail, class:"button", data: { confirm: 'Are you sure?' } ,method: :delete%>
+    <%= button_to "Delete", employeedetail_path(@employeedetail), class:"button", data: { confirm: 'Are you sure?' } , :method => :delete %>
 <%end%>
 <div class="card">
         <br/>
     <div class="card-divider">
         <h4>Experience</h4>
       </div>
-<% @employeedetail.experiences.each do |experience|%>
+    
 
-    <div class="card-section">
-    <p><%= experience.title%> </p>
-    <p><%= experience.jobtype%> </p>
-    <p><%= experience.company%> </p>
-    <p><%= experience.joblocation%> </p>
-    <p><%= experience.startdate%> </p>
-    <p><%= experience.enddate%> </p>
+    <div class= "card-section">
+    <% @employeedetail.experiences.each do |experience|%> 
+        <p><%= experience.title%> </p>
+        <p><%= experience.jobtype%> </p>
+        <p><%= experience.company%> </p>
+        <p><%= experience.joblocation%> </p>
+        <p><%= experience.startdate%> </p>
+        <p><%= experience.enddate%> </p>
+    <%end%>
 
-</div>
+    </div>
+    </div>
 
-<%end%>
+
 </div>
 
 

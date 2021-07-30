@@ -1,1 +1,1 @@
-$("#new-employee a").parent().html("<%= j render 'form', employeedetail: @employeedetail%>")
+$('#new-employee a').parent().html("<%= j (render partial: 'form', employeedetail: @employeedetail)%>")
