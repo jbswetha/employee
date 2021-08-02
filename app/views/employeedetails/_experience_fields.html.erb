@@ -1,49 +1,47 @@
-<div class="card">
-      <br/>
-  <div class="card-divider">
-      <h4>Experience Details</h4>
-    </div>
-  <div class="card-section">
+
       <div class= "grid-container"> 
               <div class="grid-x grid-padding-x">
                   <div class="medium-6 cell">
-                  <label>Title
-                  <%= f.text_field :title %>
-                  </label>
+                    <label>Title
+                    <%= f.text_field :title %>
+                    </label>
                   </div>
                   <div class="medium-6 cell"> 
-                  <label>Type
-                  <%= f.text_field :jobtype %>
-                  </label>
+                    <label>Type
+                    <%= f.text_field :jobtype %>
+                    </label>
                   </div>
-      </div>
+                </div>
       </div>
       <div class= "grid-container"> 
               <div class="grid-x grid-padding-x">
                   <div class="medium-6 cell">
-                  <label>Company
-                  <%= f.text_field :company %>
-                  </label>
+                    <label>Company
+                    <%= f.text_field :company %>
+                    </label>
                   </div>
                   <div class="medium-6 cell"> 
-                  <label>Job Location
-                  <%= f.text_field :joblocation %>
-                  </label>
+                    <label>Job Location
+                    <%= f.text_field :joblocation %>
+                    </label>
                   </div>
-      </div>
+                </div>
       </div>
       <div class= "grid-container"> 
               <div class="grid-x grid-padding-x">
                   <div class="medium-6 cell">
-                  <label>Start Date
-                  <%= f.text_field :startdate %>
-                  </label>
+                    <label>Start Date
+                    <%= f.text_field :startdate %>
+                    </label>
                   </div>
                   <div class="medium-6 cell"> 
-                  <label>End Date
-                  <%= f.text_field :enddate %>
-                  </label>
+                    <label>End Date
+                    <%= f.text_field :enddate %>
+                    </label>
                   </div>
-      </div>
+                 </div>
       </div>
       
+
+      <%=f.hidden_field :_destroy %>
+      <%=link_to 'Remove','#', class:'remove-fields' %><br/>

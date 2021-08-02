@@ -43,7 +43,7 @@
             </div>
             <div class="medium-6 cell"> 
               <label>Email
-              <%= form.text_field :emal %>
+              <%= form.text_field :emal  %>
               </label>
             </div>
           </div>
@@ -98,63 +98,26 @@
    
 
 <div class="field">
-<%= form_with model: @experiences do |f|%>
+
   <div class="card">
       <br/>
-  <div class="card-divider">
-      <h4>Experience Details</h4>
+    <div class="card-divider">
+        <h4>Experience Details</h4>
+      </div>
+    <div class="card-section">
+        <div class= "grid-container"> 
+          <%=form.fields_for :experiences,remote: true do |f| %>
+            <%= render "experience_fields", f: f%>
+          <% end %>
+          <%= link_to_add_fields 'Add', form, :experiences %><br/>
+        </div>
     </div>
-  <div class="card-section">
-      <div class= "grid-container"> 
-      <div class="grid-container"> 
-              <div class="grid-x grid-padding-x">
-                  <div class="medium-6 cell">
-                  <label>Title
-                  <%= f.text_field :title %>
-                  </label>
-                  </div>
-                  <div class="medium-6 cell"> 
-                  <label>Type
-                  <%= f.text_field :jobtype %>
-                  </label>
-                  </div>
-      </div>
-      </div>
-      <div class= "grid-container"> 
-              <div class="grid-x grid-padding-x">
-                  <div class="medium-6 cell">
-                  <label>Company
-                  <%= f.text_field :company %>
-                  </label>
-                  </div>
-                  <div class="medium-6 cell"> 
-                  <label>Job Location
-                  <%= f.text_field :joblocation %>
-                  </label>
-                  </div>
-      </div>
-      </div>
-      <div class= "grid-container"> 
-              <div class="grid-x grid-padding-x">
-                  <div class="medium-6 cell">
-                  <label>Start Date
-                  <%= f.text_field :startdate %>
-                  </label>
-                  </div>
-                  <div class="medium-6 cell"> 
-                  <label>End Date
-                  <%= f.text_field :enddate %>
-                  </label>
-                  </div>
-      </div>
-
-      </div>
-    
   </div>
+</div>
 
   <div class='actions '>
             <%= form.submit class:"button"  %>
     </div>
     </div>
-    <%end%>
+    
   <% end %>

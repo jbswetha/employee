@@ -16,5 +16,18 @@ class Employeedetail < ApplicationRecord
     accepts_nested_attributes_for :experiences
     
     has_one_attached :image , :dependent => :destroy 
+
+    def self.search(search)
+        if search
+            employeedetail= Employeedetail.find_by(firstname: search)
+            if employeedetail
+                self.where(id: employeedetail)
+            else
+                Employeedetail.all
+            end
+        else
+            Employeedetail.all
+        end
+    end
     
 end

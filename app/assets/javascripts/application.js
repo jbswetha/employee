@@ -21,7 +21,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
 
-Rails.start()
+//Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
@@ -30,4 +30,6 @@ require("employeedetail")
 
 $(function() {
   $(document).foundation();
+  
 });
+

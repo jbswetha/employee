@@ -1,12 +1,38 @@
 <h3>Add Details</h3>
-
+<meta name="_token" content="{{ csrf_token() }}">
 <%= render 'form'%>
 
 <div id ="editform"></div>
 
 <script>
          $(document).ready(function() {
+            $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
             if (jQuery){
                console.log( "ready!" );}
+
+               $(document).ready(function() {
+                  $('#formemployee').submit(function(e) {
+                      e.preventDefault();
+                      var valuesToSubmit = $(this).serialize();
+                      $target = $('#showform');
+                      $.ajax({
+                          type: $(this).attr('method'),
+                          url: $(this).attr('action'),
+                          data: valuesToSubmit,
+                          dataType: "html",
+                          
+                          success: function(content) {
+                            $('#formemployee').hide();
+                            $target.append(content);
+                            
+                        },
+                        error: function(data, status, xhr) {
+
+                            $target.html($("<span>Form haven't been loaded successfully</span>"));
+                        }
+                    })
+                    return false;
+                });
+               });
          })
    </script>

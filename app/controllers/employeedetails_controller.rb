@@ -4,7 +4,7 @@ class EmployeedetailsController < ApplicationController
   respond_to :html, :json , :js
 
     def index
-        @employeedetail=Employeedetail.all
+        @employeedetails=Employeedetail.search(params[:search])
     end
 
     def show
@@ -54,7 +54,7 @@ class EmployeedetailsController < ApplicationController
 
     def update
       
-        if @employeedetail.update(empdetail_params)
+        if @employeedetail.update(employeedetail_params)
           flash.now[:success] = "Saved the Employee Details"
           redirect_to employeedetail_path
         else

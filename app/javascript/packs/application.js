@@ -15,9 +15,10 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "jquery"
 
-Rails.start()
+//Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
+require('jquery')
 require("packs/employeedetail")

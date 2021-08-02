@@ -4,13 +4,13 @@
     <h4>Employee details</h4>
   </div>
   <div class="card-section">
-  <form class="form-inline my-2 my-lg-0 show-class" method="GET" action="/search">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search by name or skills" aria-label="Search" name="query" >
-      <%= link_to "Search" ,type:"submit",class: "button secondary"%>
-    </form>
+  <%= form_tag(employeedetails_path, method: :get) do%>
+    <%= text_field_tag(:search , params[:search])%>
+    <%= submit_tag("Search")%>
+    <%end%>
 
 <ul>
-    <% @employeedetail.each do |employeedetail|%>
+    <% @employeedetails.each do |employeedetail|%>
     <div class="card">
         </br>
       <div class="card-divider">
@@ -63,7 +63,7 @@
 
       <%if current_user.id==employeedetail.user_id%>
          <p><%= link_to "Delete",employeedetail_path(employeedetail), method: :delete,type: "submit", data: { confirm: 'Are you sure?' } %></p>
-        <p><%= link_to "Edit","#", data: { target:"#edit_about_modal", toggle:"modal" } , class: "edit_employeedetail",local: false%></p>
+        <p><%= link_to "Edit",edit_employeedetail_path(employeedetail), class: "edit_employeedetail",local: false%></p>
         <%end%>
         <div id="edit_container"></div>
     </div>  
