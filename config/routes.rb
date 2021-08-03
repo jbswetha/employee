@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   devise_scope :user do  
     authenticated :user do
       root to: 'employeedetails#index', as: :authenticated_root
+      get "/renderlink/:id" => "employeedetails#renderlink", as: :renderlink,:defaults => { :format => 'js' }
     end
     unauthenticated do
       root to: 'devise/sessions#new', as: :unauthenticated_root
     end
     get '/users/sign_out' => 'devise/sessions#destroy'     
  end
- 
+  
+
+
 end

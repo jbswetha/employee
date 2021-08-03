@@ -29,5 +29,9 @@ class Employeedetail < ApplicationRecord
             Employeedetail.all
         end
     end
+
+    def addLink
+        render "add_link"
+    end
     
 end

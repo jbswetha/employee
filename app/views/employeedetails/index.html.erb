@@ -1,78 +1,77 @@
 <div class="card" , id ="employees">
+<meta name="_token" content="{{ csrf_token() }}">
     </br>
   <div class="card-divider">
     <h4>Employee details</h4>
   </div>
   <div class="card-section">
   <%= form_tag(employeedetails_path, method: :get) do%>
-    <%= text_field_tag(:search , params[:search])%>
-    <%= submit_tag("Search")%>
-    <%end%>
+    <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+            <%= text_field_tag(:search , params[:search])%>
+            </div>
+            <div class="medium-6 cell"> 
+            <%= submit_tag("Search",remote: true,class: "button",id: "searchsubmit")%>
+            <%end%>
+              </label>
+            </div>
+          </div>
+     </div>
+     
 
 <ul>
     <% @employeedetails.each do |employeedetail|%>
     <div class="card">
         </br>
       <div class="card-divider">
+      <div class="profile-card">
         <p><%if (employeedetail.image.attached?)%>
-            <%= image_tag employeedetail.image%>
+            <%= image_tag employeedetail.image ,class:"profile", alt:"profile-image" , size: "140x140"%>
+            <%else%>
+            <%= image_tag "usericon.png" ,class:"profile", alt:"profile-image" , size: "140x140" %>
         <%end%></p>
-        <div><h4><%= employeedetail.firstname+" "+employeedetail.lastname%></h4></div>
+        <div><h4><%=link_to employeedetail.firstname+" "+employeedetail.lastname , employeedetail_path(employeedetail)%></h4></div>
+      </div>
       </div>
       <div class="card-section">
+      <p><strong>Current Position:</strong>
+      <%= employeedetail.currentposition %></p>
       <p>
-      <strong>Current Position:</strong>
-      <%= employeedetail.currentposition %>
-        </p>
-        <p>
-        <strong>Location:</strong>
-        <%= employeedetail.location %>
-          </p>
-          <p>
-          <strong>Gender:</strong>
-          <%= employeedetail.gender %>
-      </p>
-      <p>
-          <strong>Date of Birth:</strong>
-          <%= employeedetail.dob %>
-      </p>
-      <p>
-          <strong>Email:</strong>
-          <%= employeedetail.emal %>
-      </p>
-      <p>
-          <strong>Contact:</strong>
-          <%= employeedetail.contact %>
-      </p>
-      <p>
-          <strong>About:</strong>
-          <%= employeedetail.about %>
-      </p>
-      <p>
-          <strong>Location:</strong>
-          <%= employeedetail.location %>
-      </p>
-      <p>
-          <strong>Skills:</strong>
-          <%= employeedetail.skills %>
-      </p>
-      <p>
-          <strong>Country:</strong>
-          <%= employeedetail.country %>
-      </p>
+      <strong>About:</strong>
+      <%= employeedetail.about %>
+  </p>
+  <p>
+      <strong>Location:</strong>
+      <%= employeedetail.location %>
+  </p>
+      
+      <div id="show_det"></div>
+      <div id="edit_container"></div>
 
+     
       <%if current_user.id==employeedetail.user_id%>
-         <p><%= link_to "Delete",employeedetail_path(employeedetail), method: :delete,type: "submit", data: { confirm: 'Are you sure?' } %></p>
-        <p><%= link_to "Edit",edit_employeedetail_path(employeedetail), class: "edit_employeedetail",local: false%></p>
-        <%end%>
-        <div id="edit_container"></div>
+      <div class= "grid-container"> 
+          <div class="grid-x grid-padding-x">
+            <div class="medium-2 cell">
+            <p><%= link_to "Delete",employeedetail_path(employeedetail),class: "button", method: :delete,type: "submit", data: { confirm: 'Are you sure?' } %></p>
+            </div>
+            <div class="medium-2 cell"> 
+            
+        <p><%= link_to "Edit",edit_employeedetail_path(employeedetail), class: "button",local: false%></p>
+           
+              </label>
+            </div>
+          </div>
+     
+     <%end%>
+     </div>
     </div>  
 <%end%>
 
 
 </ul>
-<div id = "new-employee">
-<%=link_to 'Add Details',new_employeedetail_path%>
+
 </div>
 </div>
-</div>
+

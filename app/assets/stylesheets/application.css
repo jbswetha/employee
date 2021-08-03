@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ .profile-card .profile {
+    border-radius: 90%;
+    position: absolute;
+    top: -60px;
+    left: 12%;
+    max-width: 100px;
+    border: 3px solid rgba(255, 255, 255, 1);
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}

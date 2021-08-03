@@ -1,6 +1,7 @@
 class EmployeedetailsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   skip_before_action :verify_authenticity_token , only: [:create]
+  protect_from_forgery except: :renderlink
   respond_to :html, :json , :js
 
     def index
@@ -26,6 +27,14 @@ class EmployeedetailsController < ApplicationController
         format.json { head :no_content }
       end
     end
+
+    def renderlink
+      @employeedetail=Employeedetail.find(params[:id])
+      respond_to do |format|
+        format.js
+      end
+    end
+
     
     def create
         @employeedetail = current_user.employeedetail.new(employeedetail_params)
